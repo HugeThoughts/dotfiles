@@ -1,0 +1,143 @@
+# Create a new directory and enter it
+function md() {
+	mkdir -p "$@" && cd "$@"
+}
+
+# find shorthand
+function f() {
+    find . -name "$1"
+}
+
+
+# Create a data URL from a file
+function dataurl() {
+        local mimeType=$(file -b --mime-type "$1")
+        if [[ $mimeType == text/* ]]; then
+                mimeType="${mimeType};charset=utf-8"
+        fi
+        echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
+}
+
+
+# Copy w/ progress
+cp_p () {
+  rsync -WavP --human-readable --progress $1 $2
+}
+
+
+
+
+
+
+# A better git clone
+# clones a repository, cds into it, and opens it in my editor.
+#
+# Based on https://github.com/stephenplusplus/dots/blob/master/.bash_profile#L68 by @stephenplusplus
+#
+# Note: subl is already setup as a shortcut to Sublime. Replace with your own editor if different
+# 
+# - arg 1 - url|username|repo remote endpoint, username on github, or name of
+#           repository.
+# - arg 2 - (optional) name of repo
+#
+# usage:
+#   $ clone things
+#     .. git clone git@github.com:addyosmani/things.git things
+#     .. cd things
+#     .. subl .
+#
+#   $ clone yeoman generator
+#     .. git clone git@github.com:yeoman/generator.git generator
+#     .. cd generator
+#     .. subl .
+#
+#   $ clone git@github.com:addyosmani/dotfiles.git
+#     .. git clone git@github.com:addyosmani/dotfiles.git dotfiles
+#     .. cd dots
+#     .. subl .
+
+function clone {
+  # customize username to your own 
+  local username="ashiknesin"
+
+  local url=$1;
+  local repo=$2;
+
+  if [[ ${url:0:4} == 'http' || ${url:0:3} == 'git' ]]
+  then
+    # just clone this thing.
+    repo=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//');
+  elif [[ -z $repo ]]
+  then
+    # my own stuff.
+    repo=$url;
+    url="git@github.com:$username/$repo";
+  else
+    # not my own, but I know whose it is.
+    url="git@github.com:$url/$repo.git";
+  fi
+
+  git clone $url $repo && cd $repo && subl .;
+}
+
+
+# get gzipped size
+function gz() {
+	echo "orig size    (bytes): "
+	cat "$1" | wc -c
+	echo "gzipped size (bytes): "
+	gzip -c "$1" | wc -c
+}
+
+
+
+# take this repo and copy it to somewhere else minus the .git stuff.
+function gitexport(){
+	mkdir -p "$1"
+	git archive master | tar -x -C "$1"
+}
+
+
+
+# Install Gulp plugins and add them as `devDependencies` to `package.json`
+# Usage: `gp uglify clean cache csso`
+function gp() {
+        npm install --save-dev ${*/#/gulp-}
+}
+
+# Install Yeoman generators
+# Usage: `yi webapp gruntfile angular`
+function yi() {
+        npm install --save-dev ${*/#/generator-}
+}
+
+
+# `s` with no arguments opens the current directory in Sublime Text, otherwise
+# opens the given location
+function s() {
+        if [ $# -eq 0 ]; then
+                subl .
+        else
+                subl "$@"
+        fi
+}
+
+# `v` with no arguments opens the current directory in Vim, otherwise opens the
+# given location
+function v() {
+        if [ $# -eq 0 ]; then
+                vim .
+        else
+                vim "$@"
+        fi
+}
+
+# `o` with no arguments opens current directory, otherwise opens the given
+# location
+function o() {
+        if [ $# -eq 0 ]; then
+                open .
+        else
+                open "$@"
+        fi
+}
