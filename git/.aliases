@@ -2,6 +2,7 @@ alias g="git"
 unalias gca >/dev/null 2>/dev/null #remove oh-my-zsh git plugin alias
 alias gi="copy_gitignore"
 alias gca="git_commit_all"
+
 ## Git commands
 
 # Based on https://gist.github.com/codejets/519d3287229ed075a025

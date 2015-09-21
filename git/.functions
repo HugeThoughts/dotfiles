@@ -61,4 +61,10 @@ function git_commit_all() {
 
 }
 
+function git_password_cache() {
+
+git config --global credential.helper "cache --timeout=$1"
+
+
+}
 
