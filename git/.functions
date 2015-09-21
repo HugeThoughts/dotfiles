@@ -55,7 +55,7 @@ function copy_gitignore {
   echo "~/dotfiles/git/.gitignore has been copied to current directory"
 }
 
-function giteverything() {
+function git_commit_all() {
  git add .
  git commit -a -m "$1"
 
