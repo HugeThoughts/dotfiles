@@ -27,11 +27,14 @@ alias v="$VISUAL"
 
 
 # Rails
+
+alias b="bundle"
 alias rsb="rails s -b 0.0.0.0"
 alias rgm="rails generate model"
-alias rgc="rails generate contoller"
+alias rgc="rails generate controller"
 alias rgs="rails generate scaffold"
-alias b="bundle"
+alias rdm="rails destroy model"
+alias rdc="rails destroy controller"
 
 
 # npm
