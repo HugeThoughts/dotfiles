@@ -14,6 +14,7 @@ alias dt="cd ~/Desktop"
 alias co="cd ~/Code"
 alias h="history"
 alias dot="cd ~/dotfiles"
+alias hts="cd ~/Code/HugeThoughts"
 
 
 
@@ -31,6 +32,7 @@ alias rsb="rails s -b 0.0.0.0"
 alias rgm="rails generate model"
 alias rgc="rails generate contoller"
 alias rgs="rails generate scaffold"
+alias rdm="rake db:migrate"
 alias b="bundle"
 
 
@@ -47,13 +49,13 @@ alias npmrg="npm uninstall -g"
 alias bs="browser-sync start --server --files '**/*.html,**/*.css,**/*.js'"
 alias live="live-server"
 alias pss="python -m SimpleHTTPServer 8000"
-
+alias phps="php -S localhost:8000"
 
 
 
 
 #Run the last command as root
-alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
+alias reload=". ~/.zshrc"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
