@@ -1,9 +1,0 @@
-# shell
-source ~/dotfiles/shell/.exports
-source ~/dotfiles/shell/.aliases
-source ~/dotfiles/shell/.functions
-
-# git
-
-source ~/dotfiles/git/.functions
-source ~/dotfiles/git/.aliases
