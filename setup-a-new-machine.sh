@@ -75,7 +75,7 @@ elif [ "$(uname)" == "Linux" ] && [	"$(lsb_release -si)" == "Ubuntu" ]; then
 	
 	## RVM
 
-    \curl https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer | bash -s stable --rails
+    	\curl https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer | bash -s stable --rails
 
 	rvm use 2.2.1
 
