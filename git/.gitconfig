@@ -3,3 +3,8 @@
 	email = mail@ashiknesin.com
 [credential]
 	helper = cache --timeout=99999
+
+# push easily. http://stackoverflow.com/a/23918418/89484
+[push]
+	default = current
+
