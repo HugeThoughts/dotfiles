@@ -53,11 +53,13 @@ alias npmrg="npm uninstall -g"
 # server guick starts
 alias bs="browser-sync start --server --files '**/*.html,**/*.css,**/*.js'"
 alias live="live-server"
-alias pss="python -m SimpleHTTPServer 8000"
+alias pys="python -m SimpleHTTPServer 8000"
 alias phps="php -S localhost:8000"
 
 
+# custom apps
 
+alias dld="aria2c -x10"
 
 #Run the last command as root
 alias reload=". ~/.zshrc"

@@ -1,7 +1,11 @@
 #!/bin/bash
 
 if [ "$(uname)" == "Darwin" ]; then
-    # Do something under Mac OS X platform    
+	xcode-select –install
+    # Install Brew
+    ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”  
+
+    brew install aria2
 
 elif [ "$(uname)" == "Linux" ] && [	"$(lsb_release -si)" == "Ubuntu" ]; then
     
