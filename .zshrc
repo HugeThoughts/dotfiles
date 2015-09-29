@@ -28,3 +28,7 @@ source ~/dotfiles/shell/.functions
 
 source ~/dotfiles/git/.functions
 source ~/dotfiles/git/.aliases
+
+# utils
+
+source ~/dotfiles/utils/z/z.sh
