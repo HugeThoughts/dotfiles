@@ -47,7 +47,11 @@ function gitexport(){
 	git archive master | tar -x -C "$1"
 }
 
-
+# Install Grunt plugins and add them as `devDependencies` to `package.json`
+# Usage: `gi contrib-watch contrib-uglify zopfli`
+function gi() {
+        npm install --save-dev ${*/#/grunt-}
+}
 
 # Install Gulp plugins and add them as `devDependencies` to `package.json`
 # Usage: `gp uglify clean cache csso`
@@ -144,3 +148,4 @@ function gz() {
     echo "gzipped size (bytes): "
     gzip -c "$1" | wc -c
 }
+

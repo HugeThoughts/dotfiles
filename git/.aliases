@@ -12,10 +12,16 @@ alias diff='git diff'
 alias branch='git branch'
 alias st='git status'
 alias fetch='git fetch'
-alias push='git push origin head'
+alias push='git push origin'
 alias pull='git pull'
 alias fp='fetch && pull'
 alias gmm='git merge master'
 alias gmghp='git merge gh-pages'
 alias recent='git for-each-ref --sort=-committerdate refs/heads/'
 alias branch_new="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)'"
+
+# Undo a `git push`
+alias undopush="git push -f origin HEAD^:master"
+
+# git root
+alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
