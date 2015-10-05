@@ -8,3 +8,10 @@
 [push]
 	default = current
 
+[color]
+	ui = true
+[alias]
+	co = checkout
+	br = branch
+	ct = commit
+	unstage = reset HEAD --

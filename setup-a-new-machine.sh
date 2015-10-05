@@ -102,3 +102,5 @@ elif [ "$(uname)" == "Linux" ] && [	"$(lsb_release -si)" == "Ubuntu" ]; then
 fi
 
 ./symlink-setup.sh
+
+ssh-keygen -t rsa -b 4096 -C "mail@ashiknesin.com"
