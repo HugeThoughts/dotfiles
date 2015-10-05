@@ -6,6 +6,8 @@ if [ "$(uname)" == "Darwin" ]; then
     ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”  
 
     brew install aria2
+    
+    brew install heroku
 
 elif [ "$(uname)" == "Linux" ] && [	"$(lsb_release -si)" == "Ubuntu" ]; then
     
@@ -96,6 +98,10 @@ elif [ "$(uname)" == "Linux" ] && [	"$(lsb_release -si)" == "Ubuntu" ]; then
 	npm install -g gulp bower browser-sync live-server harp
 
 	npm install -g yo generator-webapp generator-angular
+
+	# Heroku Setup
+	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
 
 
 
