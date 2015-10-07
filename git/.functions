@@ -50,11 +50,6 @@ function clone {
 }
 
 
-function copy_gitignore {
-  cp ~/dotfiles/git/.gitignore .gitignore
-  echo "~/dotfiles/git/.gitignore has been copied to current directory"
-}
-
 function git_commit_all() {
  git add .
  git commit -a -m "$1"
@@ -74,4 +69,8 @@ function g() {
                 
                 git "$@"
         fi
+}
+
+gi() {
+  curl -s "https://www.gitignore.io/api/$*" > .gitignore
 }
