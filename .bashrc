@@ -115,22 +115,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# shell
-source ~/dotfiles/shell/.exports
-source ~/dotfiles/shell/.aliases
-source ~/dotfiles/shell/.functions
-
-# git
-
-source ~/dotfiles/git/.functions
-source ~/dotfiles/git/.aliases
-
-# utils
-
-source ~/dotfiles/utils/z/z.sh
