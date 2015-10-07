@@ -56,12 +56,6 @@ function git_commit_all() {
 
 }
 
-function git_password_cache() {
-
-git config --global credential.helper "cache --timeout=$1"
-
-
-}
 function g() {
         if [ $# -eq 0 ]; then
                 git status

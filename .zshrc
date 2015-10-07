@@ -26,8 +26,8 @@ source ~/dotfiles/shell/.functions
 
 # git
 
-source ~/dotfiles/git/.functions
-source ~/dotfiles/git/.aliases
+source ~/dotfiles/git/functions
+source ~/dotfiles/git/aliases
 
 # utils
 
