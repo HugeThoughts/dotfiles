@@ -18,3 +18,11 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/git/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/git/gitignore ~/.gitignore
 ln -sf ~/dotfiles/.gemrc ~/.gemrc
+
+
+
+#	----------	OSX Stuffs -------------
+
+if [ "$(uname)" == "Darwin" ]; then
+	ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+fi

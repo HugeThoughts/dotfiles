@@ -3,21 +3,6 @@ function md() {
 	mkdir -p "$@" && cd "$@"
 }
 
-# find shorthand
-function f() {
-    find . -name "$1"
-}
-
-
-# Create a data URL from a file
-function dataurl() {
-        local mimeType=$(file -b --mime-type "$1")
-        if [[ $mimeType == text/* ]]; then
-                mimeType="${mimeType};charset=utf-8"
-        fi
-        echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
-}
-
 
 # Copy w/ progress
 cp_p () {
@@ -25,27 +10,6 @@ cp_p () {
 }
 
 
-
-
-
-
-
-
-# get gzipped size
-function gz() {
-	echo "orig size    (bytes): "
-	cat "$1" | wc -c
-	echo "gzipped size (bytes): "
-	gzip -c "$1" | wc -c
-}
-
-
-
-# take this repo and copy it to somewhere else minus the .git stuff.
-function gitexport(){
-	mkdir -p "$1"
-	git archive master | tar -x -C "$1"
-}
 
 # Install Grunt plugins and add them as `devDependencies` to `package.json`
 # Usage: `gi contrib-watch contrib-uglify zopfli`
@@ -86,17 +50,6 @@ function v() {
         fi
 }
 
-# `o` with no arguments opens current directory, otherwise opens the given
-# location
-function o() {
-        if [ $# -eq 0 ]; then
-                open .
-        else
-                open "$@"
-        fi
-}
-
-
 # Extract archives - use: extract <file>
 # Based on http://dotfiles.org/~pseup/.bashrc
 function extract() {
@@ -134,18 +87,19 @@ function extract() {
     fi
 }
 
+#   ----------  OSX Stuffs -------------
 
-# Copy w/ progress
-cp_p () {
-  rsync -WavP --human-readable --progress $1 $2
-}
+if [ "$(uname)" == "Darwin" ]; then
 
 
-# get gzipped size
-function gz() {
-    echo "orig size    (bytes): "
-    cat "$1" | wc -c
-    echo "gzipped size (bytes): "
-    gzip -c "$1" | wc -c
-}
+    # `o` with no arguments opens current directory, otherwise opens the given
+    # location
+    function o() {
+            if [ $# -eq 0 ]; then
+                    open .
+            else
+                    open "$@"
+            fi
+    }
 
+fi

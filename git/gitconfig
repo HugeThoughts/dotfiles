@@ -15,5 +15,6 @@
 	br = branch
 	ct = commit
 	unstage = reset HEAD --
+	undo = reset --soft HEAD^
 [url "git@github.com:HugeThoughts/"]
   insteadOf = "git://github.com/HugeThoughts/"

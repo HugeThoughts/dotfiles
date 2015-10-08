@@ -1,11 +1,11 @@
+# Set default editors
+export EDITOR="vim"
+export VISUAL="subl"
+
 # Easier navigation: .., ..., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
-alias -- -="cd -"
-
+alias ~="cd ~" 
 
 # Shortcuts
 alias db="cd ~/Dropbox"
@@ -15,26 +15,6 @@ alias co="cd ~/Code"
 alias h="history"
 alias dot="cd ~/dotfiles"
 alias hts="cd ~/Code/HugeThoughts"
-
-
-#	----------	OSX -------------
-
-if [ "$(uname)" == "Darwin" ]; then
-	alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl' 
-fi
-
-
-
-#	----------	Ubuntu ----------
-
-if [ "$(uname)" == "Linux" ]; then
-	alias pbcopy='xclip -selection clipboard'
-	alias pbpaste='xclip -selection clipboard -o'
-fi
-
-# vim as default
-export EDITOR="vim"
-export VISUAL="subl"
 
 
 # Unix
@@ -75,31 +55,25 @@ alias live="live-server"
 alias pys="python -m SimpleHTTPServer 8000"
 alias phps="php -S localhost:8000"
 
+# pbcopy alias for Ubuntu
 
-# custom apps
+if [ "$(uname)" == "Linux" ]; then
+	alias pbcopy='xclip -selection clipboard'
+	alias pbpaste='xclip -selection clipboard -o'
+fi
 
+
+# custom
+alias .e="subl ~/dotfiles"
 alias dld="aria2c -x 10"
-alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied to clipboard.'"
-
-
-#Run the last command as root
+alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Public key copied to clipboard.'"
 alias reload=". ~/.zshrc"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
-# Include custom aliases
-[[ -f ~/.aliases.local ]] && source ~/.aliases.local
-
 
 # utils
 
 alias ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
-
-# dotfiles
-
-alias .e="subl ~/dotfiles"
-alias .st="cd ~/dotfiles && st"
-alias .pull="cd ~/dotfiles && pull"
-alias .push="cd ~/dotfiles && push"
 
