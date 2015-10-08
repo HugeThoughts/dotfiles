@@ -17,6 +17,25 @@ alias dot="cd ~/dotfiles"
 alias hts="cd ~/Code/HugeThoughts"
 
 
+#	----------	OSX -------------
+
+if [ "$(uname)" == "Darwin" ]; then
+	alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl' 
+fi
+
+
+
+#	----------	Ubuntu ----------
+
+if [ "$(uname)" == "Linux" ]; then
+	alias pbcopy='xclip -selection clipboard'
+	alias pbpaste='xclip -selection clipboard -o'
+fi
+
+# vim as default
+export EDITOR="vim"
+export VISUAL="subl"
+
 
 # Unix
 alias cls="clear"
@@ -73,21 +92,6 @@ alias path='echo $PATH | tr -s ":" "\n"'
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
 
 
-#	----------	OSX -------------
-
-if [ "$(uname)" == "Darwin" ]; then
-	alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl' 
-fi
-
-
-
-#	----------	Ubuntu ----------
-
-if [ "$(uname)" == "Linux" ]; then
-	alias pbcopy='xclip -selection clipboard'
-	alias pbpaste='xclip -selection clipboard -o'
-fi
-
 # utils
 
 alias ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
@@ -98,3 +102,4 @@ alias .e="subl ~/dotfiles"
 alias .st="cd ~/dotfiles && st"
 alias .pull="cd ~/dotfiles && pull"
 alias .push="cd ~/dotfiles && push"
+

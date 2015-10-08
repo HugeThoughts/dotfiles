@@ -5,16 +5,14 @@ if [ "$(uname)" == "Darwin" ]; then
     # Install Brew
     ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”  
 
-    brew install aria2
     
-    brew install heroku
-
 elif [ "$(uname)" == "Linux" ] && [	"$(lsb_release -si)" == "Ubuntu" ]; then
     
     echo -e "\n--- Add some repos to update our distro ---\n"
     
     sudo add-apt-repository ppa:atareao/telegram
     sudo add-apt-repository ppa:saiarcot895/myppa # apt-fast repo
+
  
 	echo -e "\n--- Updating packages list ---\n"
 
@@ -22,6 +20,7 @@ elif [ "$(uname)" == "Linux" ] && [	"$(lsb_release -si)" == "Ubuntu" ]; then
 
     ## Internet
     sudo apt-get -y install apt-fast telegram
+
 
     ## Multimedia
     sudo apt-get -y install vlc

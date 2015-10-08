@@ -20,9 +20,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
 
 # shell
-source ~/dotfiles/shell/.exports
-source ~/dotfiles/shell/.aliases
-source ~/dotfiles/shell/.functions
+source ~/dotfiles/shell/aliases
+source ~/dotfiles/shell/functions
 
 # git
 
